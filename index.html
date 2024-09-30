@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow with Animated Button and Text</title>
+    <style>
+        /* Slideshow container */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        /* Slide text */
+        .slide-text {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #ff3333;
+            animation: colorChange 2s infinite alternate ease-in-out;
+        }
+
+        /* Text color changing animation */
+        @keyframes colorChange {
+            0% {
+                color: #ff3333;
+            }
+            100% {
+                color: #00cc99;
+            }
+        }
+
+        /* Get Now Button */
+        .get-now-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .get-now-btn {
+            font-size: 20px;
+            padding: 10px 30px;
+            color: white;
+            background-color: #ff3333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.5s, transform 0.5s;
+        }
+
+        .get-now-btn:hover {
+            background-color: #00cc99;
+            transform: scale(1.1);
+        }
+
+        /* Loading spinner */
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            display: none;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Spinner container */
+        .loading-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="slide fade">
+            <img src="https://c8.alamy.com/comp/F08JHA/science-concept-computer-science-on-digital-background-F08JHA.jpg" style="width:100%; height: 300px;">
+            <div class="slide-text">Science and Technology</div>
+            <div class="get-now-container">
+                <a href="https://link1.com" class="get-now-btn" onclick="speakLoading(); showSpinner(); return false;">Get Now</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide fade">
+            <img src="https://example.com/image2.jpg" style="width:100%; height: 300px;">
+            <div class="slide-text">Explore the Digital World</div>
+            <div class="get-now-container">
+                <a href="https://link2.com" class="get-now-btn" onclick="speakLoading(); showSpinner(); return false;">Get Now</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide fade">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTxDLYs6KeCRa2GRLVlmvrf_WY7zQh1XxbeQ&s" style="width:100%; height: 300px;">
+            <div class="slide-text">Explore New Horizons</div>
+            <div class="get-now-container">
+                <a href="https://link3.com" class="get-now-btn" onclick="speakLoading(); showSpinner(); return false;">Get Now</a>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide fade">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQQA06uUmPbr2JJrOzytxz_Umvsgy2B18lEg&s" style="width:100%; height: 300px;">
+            <div class="slide-text">Future of Innovation</div>
+            <div class="get-now-container">
+                <a href="https://link4.com" class="get-now-btn" onclick="speakLoading(); showSpinner(); return false;">Get Now</a>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide fade">
+            <img src="https://uttaminstitute.ac.in/images/BCOM.jpg" style="width:100%; height: 300px;">
+            <div class="slide-text">Empowering Education</div>
+            <div class="get-now-container">
+                <a href="https://link5.com" class="get-now-btn" onclick="speakLoading(); showSpinner(); return false;">Get Now</a>
+            </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide fade">
+            <img src="https://i.ibb.co/rsDGmm7/Gemini-Generated-Image-p6af1xp6af1xp6af.jpg" style="width:100%; height: 300px;">
+            <div class="slide-text">Space Exploration</div>
+            <div class="get-now-container">
+                <a href="https://link6.com" class="get-now-btn" onclick="speakLoading(); showSpinner(); return false;">Get Now</a>
+            </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Loading spinner -->
+    <div class="loading-container">
+        <div id="spinner" class="spinner"></div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        function plusSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            slideIndex += n;
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        // Function to make the browser speak "Your course is loading..."
+        function speakLoading() {
+            const speech = new SpeechSynthesisUtterance("Your course is loading...");
+            speechSynthesis.speak(speech);
+        }
+
+        // Function to show the loading spinner
+        function showSpinner() {
+            const spinner = document.getElementById('spinner');
+            spinner.style.display = 'block';  // Show spinner
+            setTimeout(function() {
+                spinner.style.display = 'none';  // Hide spinner after 10 seconds
+            }, 7000);  // 10 seconds delay
+        }
+    </script>
+</body>
+</html>
